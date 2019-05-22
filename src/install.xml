@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- /**
+ *  Option Equals Sign.
+ *
+ * The Option Equals Sign extension is for CMS Opencart 3.x.
+ * It allows to use an equal sign as prefix for product option values - price, reward points and weight.
+ *
+ * @author		Andrii Burkatskyi aka underr underr.ua@gmail.com
+ * @copyright	Copyright (c) 2018-2019 Andrii Burkatskyi
+ * @license		https://raw.githubusercontent.com/underr-ua/ocmod3-option-equals-sign/master/LICENSE.txt MIT
+ *
+ * @version		1.1
+ *
+ * @see			https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383
+ * @see			https://underr.space/notes/projects/project-005.html
+ * @see			https://github.com/underr-ua/ocmod3-option-equals-sign
+ */ -->
+
+<modification>
+	<name>[underr] Option Equals Sign</name>
+	<code>option-equals-sign</code>
+	<version>1.1</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://github.com/underr-ua/ocmod3-option-equals-sign/</link>
+
+	<file path="admin/view/template/setting/setting.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{% if config_mail_engine == 'mail' %}]]>
+			</search>
+			<add position="before">
+				<![CDATA[                      {% if config_mail_engine == 'disabled' %}
+
+                      <option value="disabled" selected="selected">{{ text_disabled }}</option>
+
+                      {% else %}
+
+                      <option value="disabled">{{ text_disabled }}</option>
+
+                      {% endif %}]]>
+			</add>
+		</operation>
+
+	</file>
+
+	<file path="system/library/mail.php" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[if (class_exists($class)) {]]>
+			</search>
+			<add position="replace">
+				<![CDATA[if ($adaptor == 'disabled') {
+			$this->adaptor = null;
+		} elseif (class_exists($class)) {]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search>
+				<![CDATA[$this->adaptor->$key = $value;]]>
+			</search>
+			<add position="replace">
+				<![CDATA[if ($this->adaptor) {
+				$this->adaptor->$key = $value;
+			}]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[$this->adaptor->send();]]>
+			</search>
+			<add position="replace">
+				<![CDATA[if ($this->adaptor) {
+			$this->adaptor->send();
+		}]]>
+			</add>
+		</operation>
+	</file>
+
+</modification>
