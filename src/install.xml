@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- /**
- *  Option Equals Sign.
- *
- * The Option Equals Sign extension is for CMS Opencart 3.x.
- * It allows to use an equal sign as prefix for product option values - price, reward points and weight.
- *
- * @author		Andrii Burkatskyi aka underr underr.ua@gmail.com
- * @copyright	Copyright (c) 2018-2019 Andrii Burkatskyi
- * @license		https://raw.githubusercontent.com/underr-ua/ocmod3-option-equals-sign/master/LICENSE.txt MIT
- *
- * @version		1.1
- *
- * @see			https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383
- * @see			https://underr.space/notes/projects/project-005.html
- * @see			https://github.com/underr-ua/ocmod3-option-equals-sign
- */ -->
+<!--
+NoMail.
+
+NoMail is a free extension for CMS Opencart 3.x.
+It allows to completely disable mail sending.
+
+@author         Andrii Burkatskyi aka underr underr.ua@gmail.com
+@copyright      Copyright (c) 2018-2019 Andrii Burkatskyi
+@license        https://raw.githubusercontent.com/underr-ua/ocmod3-nomail/master/LICENSE.txt MIT
+
+@version        1.0
+
+@see            https://underr.space/notes/projects/project-016.html
+@see            https://github.com/underr-ua/ocmod3-nomail
+-->
 
 <modification>
 	<name>[underr] Option Equals Sign</name>
-	<code>option-equals-sign</code>
-	<version>1.1</version>
+	<code>nomail</code>
+	<version>1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://github.com/underr-ua/ocmod3-option-equals-sign/</link>
+	<link>https://github.com/underr-ua/ocmod3-nomail</link>
 
 	<file path="admin/view/template/setting/setting.twig" error="log">
 		<operation error="log">
